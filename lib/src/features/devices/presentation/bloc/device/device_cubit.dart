@@ -15,7 +15,7 @@ class DeviceCubit extends Cubit<DeviceListState> {
     emit(const DeviceListState.empty());
   }
 
-  void startSearch(List<String>? searchPrefix) async {
+  void startSearch([List<String> searchPrefix = const <String>[]]) async {
     emit(const DeviceListState.searching());
     final result = _searchDevicesUseCase
         .call(SearchDevicesParams(searchPrefix: searchPrefix));
