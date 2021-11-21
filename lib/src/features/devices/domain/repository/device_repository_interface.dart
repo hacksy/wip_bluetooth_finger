@@ -3,5 +3,6 @@ import 'package:clone_app_xxx/src/features/devices/domain/entity/device_entity.d
 import 'package:dartz/dartz.dart';
 
 abstract class IDeviceRepository {
-  Either<Failure, Stream<List<DeviceEntity>>> searchDevices();
+  Either<Failure, Stream<List<DeviceEntity>>> searchDevices(
+      List<String>? searchPrefix);
 }

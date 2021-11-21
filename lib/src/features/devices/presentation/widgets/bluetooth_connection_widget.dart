@@ -10,7 +10,7 @@ class BluetoothConnectionWidget extends StatelessWidget {
     return ElevatedButton(
       child: const Text('Search for Devices'),
       onPressed: () {
-        sl<DeviceCubit>().startSearch();
+        sl<DeviceCubit>().startSearch([]);
       },
     );
   }

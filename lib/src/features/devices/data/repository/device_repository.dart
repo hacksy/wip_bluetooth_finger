@@ -8,9 +8,10 @@ class DeviceRepository extends IDeviceRepository {
   DeviceRepository({required this.deviceLocalDataSource});
   final IDeviceLocalDataSource deviceLocalDataSource;
   @override
-  Either<Failure, Stream<List<DeviceEntity>>> searchDevices() {
+  Either<Failure, Stream<List<DeviceEntity>>> searchDevices(
+      List<String>? searchPrefix) {
     try {
-      final stream = deviceLocalDataSource.searchBluetoothDevice();
+      final stream = deviceLocalDataSource.searchBluetoothDevice(searchPrefix);
       return Right(stream);
     } on Exception {
       return Left(GeneralFailure());

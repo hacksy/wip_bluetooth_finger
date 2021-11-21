@@ -15,9 +15,10 @@ class DeviceCubit extends Cubit<DeviceListState> {
     emit(const DeviceListState.empty());
   }
 
-  void startSearch() async {
+  void startSearch(List<String>? searchPrefix) async {
     emit(const DeviceListState.searching());
-    final result = _searchDevicesUseCase.call(NoParams());
+    final result = _searchDevicesUseCase
+        .call(SearchDevicesParams(searchPrefix: searchPrefix));
     result.fold(
         (failure) =>
             emit(const DeviceListState.error('Error while loading devices')),
