@@ -7,6 +7,9 @@ class DeviceEntity {
   final String id;
   final String name;
   final DeviceKind kind;
+  factory DeviceEntity.none() {
+    return DeviceEntity(id: '', name: '', kind: DeviceKind.none);
+  }
 }
 
 enum DeviceKind {
@@ -15,4 +18,5 @@ enum DeviceKind {
   usb,
   wifi,
   unknown,
+  none,
 }
